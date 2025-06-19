@@ -51,7 +51,7 @@ if(points !==null){
 
   const positions = new Float32Array(parameters.count * 3)
   const colors = new Float32Array(parameters.count * 3)
-  const sizes = new Float32Array(parameters.count)
+ 
 
   const colorInside = new THREE.Color(parameters.insideColor)
   const colorOutside = new THREE.Color(parameters.outsideColor)
@@ -209,7 +209,7 @@ const pointLight = new THREE.PointLight(
   5,
   0.89)
 scene.add(pointLight)
-pointLight.position.set(0,2,2)
+pointLight.position.set(-0.5,2.65,-0.94)
 // pointLight.position.set(0,2,0)
 pointLight.lookAt(earth.position)
 
@@ -282,6 +282,8 @@ const clock = new THREE.Clock()
 const animate = () => {
   const elapsedTime = clock.getElapsedTime()
   points.rotation.y = elapsedTime * 0.03
+
+  earth.rotation.y = elapsedTime * -0.02
   controls.update()
 camera.lookAt(earth.position)
   renderer.render(scene, camera)
